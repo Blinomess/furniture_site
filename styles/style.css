@@ -24,12 +24,15 @@ header {
     margin-bottom: 40px;
 }
 
-.lcon_header {
-    height: 22px;
-}
-
-.logo {
-    width: 50%;
+.btn {
+    background-color: rgba(249, 249, 249, 0.15);
+    color: white;
+    border: none;
+    padding: 3% 5%;
+    font-size: 16px;
+    line-height: 150%;
+    cursor: pointer;
+    width: fit-content;
 }
 
 .pr_ic {
@@ -42,30 +45,32 @@ header {
     margin-top: 20px;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+.lcon_header {
+    height: 22px;
 }
 
-.nav-menu {
-    margin: auto;
-    display: flex;
-    gap: 50px;
-    list-style: none;
+.logo {
+    width: 50%;
 }
 
-.nav-menu a {
-    text-decoration: none;
-    color: #726E8D;
-    font-size: 16px;
-    line-height: 150%;
-}
+@media (max-width: 768px) {
+    .hero,
+    .brand-story {
+        grid-template-columns: 1fr;
+    }
 
-.nav-icons {
-    display: flex;
-    gap: 16px;
+    .features-grid,
+    .products-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .popular-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .hero {
@@ -99,17 +104,6 @@ nav {
     line-height: 150%;
 }
 
-.btn {
-    background-color: rgba(249, 249, 249, 0.15);
-    color: white;
-    border: none;
-    padding: 3% 5%;
-    font-size: 16px;
-    line-height: 150%;
-    cursor: pointer;
-    width: fit-content;
-}
-
 .hero-image {
     display: flex;
     justify-content: center;
@@ -118,6 +112,32 @@ nav {
 .hero-image img {
     max-width: 100%;
     height: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.nav-menu {
+    margin: auto;
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #726E8D;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 16px;
 }
 
 .features {
@@ -218,6 +238,54 @@ nav {
     margin-bottom: 50px;
 }
 
+.brand-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 603px;
+    margin: 0px -100px;
+}
+
+.story-content {
+    padding: 80px 100px 80px 80px;
+    background-color: white;
+}
+
+.story-content h2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 24px;
+    color: #2A254B;
+}
+
+.story-content p {
+    color: #505977;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 32px;
+}
+
+.story-content button {
+    background-color: #F9F9F9;
+    color: #2A254B;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    line-height: 150%;
+    cursor: pointer;
+    margin-top: 50%;
+}
+
+.story-image {
+    background: #FFF;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .popular-products {
     max-width: 100%;
     margin-top: 100px;
@@ -296,54 +364,6 @@ nav {
     font-size: 16px;
     line-height: 150%;
     cursor: pointer;
-}
-
-.brand-story {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 603px;
-    margin: 0px -100px;
-}
-
-.story-content {
-    padding: 80px 100px 80px 80px;
-    background-color: white;
-}
-
-.story-content h2 {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 150%;
-    margin-bottom: 24px;
-    color: #2A254B;
-}
-
-.story-content p {
-    color: #505977;
-    font-size: 16px;
-    line-height: 150%;
-    margin-bottom: 32px;
-}
-
-.story-content button {
-    background-color: #F9F9F9;
-    color: #2A254B;
-    border: none;
-    padding: 16px 32px;
-    font-size: 16px;
-    line-height: 150%;
-    cursor: pointer;
-    margin-top: 50%;
-}
-
-.story-image {
-    background: #FFF;
-}
-
-.story-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 footer {
@@ -442,24 +462,4 @@ footer {
     height: 24px;
     color: white;
     filter: brightness(0) invert(1);
-}
-
-@media (max-width: 768px) {
-    .hero,
-    .brand-story {
-        grid-template-columns: 1fr;
-    }
-
-    .features-grid,
-    .products-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .popular-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-    }
 }
