@@ -1,6 +1,6 @@
 ## Ссылка на страницу
 
-**[https://https://github.com/Tixoni/website_with_furniture]
+https://https://github.com/Tixoni/website_with_furniture]
 
 ---
 
@@ -20,7 +20,6 @@ furniture_site/
 | |── icons/
 │ └── fonts/
 └── README.md
-
 ```
 
 ---
