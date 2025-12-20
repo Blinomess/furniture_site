@@ -1,6 +1,6 @@
 ## Ссылка на страницу
 
-https://https://github.com/Tixoni/website_with_furniture]
+https://github.com/Blinomess/furniture_site
 
 ---
 
