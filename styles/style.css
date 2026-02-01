@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 
+
 * {
     margin: 0;
     padding: 0;
@@ -46,7 +47,6 @@ header {
 
 .line {
     border-bottom: 2px solid #EBE9F1;
-    margin-top: 20px;
 }
 
 nav {
@@ -81,13 +81,13 @@ nav {
     margin-top: 50px;
     max-width: 100%;
     aspect-ratio: 1800/820;
-    margin-bottom: 170px;
+    margin-bottom: 20%;
 }
 
 .hero-content {
     background-color: #2A254B;
     color: white;
-    padding: 80px;
+    padding: 8%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -120,6 +120,7 @@ nav {
 .hero-image {
     display: flex;
     justify-content: center;
+    background-color: #83a9ac;
 }
 
 .hero-image img {
@@ -171,7 +172,7 @@ nav {
 }
 
 .products-section {
-    margin-top: 200px;
+    margin-top: 20%;
 }
 
 .products-section h2 {
@@ -443,6 +444,7 @@ footer {
     line-height: 150%;
 }
 
+
 .social-links {
     display: flex;
     gap: 30px;
@@ -451,29 +453,18 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-@media (max-width: 768px) {
-    .hero,
-    .brand-story {
-        grid-template-columns: 1fr;
-    }
-
-    .features-grid,
-    .products-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .popular-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-    }
+.burger {
+    display: none;
 }
 
+/* ==================================================================================== PRACTICE 3 ADDITIONS */
+
+/* Плавная прокрутка по якорям */
 html {
     scroll-behavior: smooth;
 }
+
+/* ----------------------------- NAVIGATION INTERACTIVITY*/
 
 .nav-menu a {
     position: relative;
@@ -504,6 +495,7 @@ html {
     outline-offset: 4px;
 }
 
+/* ----------------------------- BUTTON STATES */
 button {
     transition: all 0.3s ease;
 }
@@ -527,6 +519,7 @@ button:disabled {
     transform: none;
 }
 
+/* ----------------------------- PRODUCT CARDS INTERACTION */
 .product-card {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -537,6 +530,7 @@ button:disabled {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
+/* ----------------------------- FEATURE ITEMS HOVER */
 .feature-item {
     transition: transform 0.3s ease;
 }
@@ -545,11 +539,13 @@ button:disabled {
     transform: translateY(-4px);
 }
 
+/* ----------------------------- INPUT FOCUS STATES */
 input:focus {
     outline: 2px solid #2A254B;
     outline-offset: 2px;
 }
 
+/* ----------------------------- FADE-IN ANIMATION */
 .fade-in {
     animation: fadeIn 0.6s ease-in both;
 }
@@ -565,6 +561,7 @@ input:focus {
     }
 }
 
+/* ----------------------------- APPLY ANIMATION SAFELY */
 .hero,
 .features,
 .products-section,
@@ -575,127 +572,6 @@ input:focus {
 }
 
 
-/* --------- ≤ 1200px (large tablets / small laptops) */
-@media (max-width: 1200px) {
-    body {
-        margin: 0 60px;
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .products-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* --------- ≤ 992px (tablets) */
-@media (max-width: 992px) {
-    body {
-        margin: 0 40px;
-    }
-
-    header {
-        margin: 0 -40px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        aspect-ratio: auto;
-    }
-
-    .hero-content {
-        padding: 60px;
-    }
-
-    .hero-image{
-        background-color:rgb(131,169,172);
-    }
-
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .menu {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* --------- ≤ 768px (mobile landscape / small tablets) */
-@media (max-width: 768px) {
-
-    .nav-menu {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    body {
-        margin: 0 20px;
-    }
-
-    header,
-    footer,
-    .newsletter,
-    .brand-story {
-        margin: 0 -20px;
-    }
-
-    .features-grid,
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .popular-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .menu {
-        grid-template-columns: 1fr;
-        margin-left: 0;
-    }
-
-    .story-content {
-        padding: 40px;
-    }
-
-    .story-content button {
-        margin-top: 40px;
-    }
-}
-
-/* --------- ≤ 576px (mobile portrait) */
-@media (max-width: 576px) {
-    .hero-content h1 {
-        font-size: 28px;
-    }
-
-    .newsletter h2 {
-        font-size: 28px;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .newsletter-form button {
-        width: 100%;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
+.scroll-top {
+    display: none;
 }

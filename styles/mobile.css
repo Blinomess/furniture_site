@@ -1,0 +1,901 @@
+/* ========== ТЕЛЕФОНЫ (≤ 600px) ========== */
+@media (max-width: 600px) {
+    /* Добавляем универсальное правило для контроля размеров внутри медиа-запроса */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    body { 
+        font-size: 17px !important; 
+    }
+
+    /* Увеличиваем заголовки, сохраняя их превосходство над обычным текстом */
+    h1 { font-size: 1.9em !important; } /* Самый крупный */
+    h2 { font-size: 1.8em !important; }
+    h3 { font-size: 1.5em !important; }
+    h4 { font-size: 1.2em !important; }
+    
+    /* Убеждаемся, что все остальные элементы (ссылки, кнопки, спаны) 
+       подтянулись к базовому размеру body */
+    p, a, span, button, input, li { 
+        font-size: 1em !important; 
+    }
+
+    /* --- 1. Общие настройки и Сетки --- */
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #2A254B;
+        line-height: 150%;
+        font-size: 16px;
+        
+        margin: 0 !important; 
+        padding: 0% 5% 0% 5% !important;
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.69); /* Цвет затемнения (черный с 50% прозрачностью) */
+    z-index: 15; /* Должен быть ниже меню (у вас оно 20), но выше контента страницы */
+    opacity: 0;
+    pointer-events: none; /* Чтобы оверлей не мешал нажимать на кнопки, когда меню закрыто */
+    transition: opacity 0.3s ease;
+    }
+
+    /* Класс, который будет добавляться при открытии меню */
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto; /* Делаем его кликабельным */
+    }
+
+    /* Плавный переход для всех интерактивных элементов */
+    button, a, input {
+        transition: all 0.3s ease;
+    }
+
+    .features-grid,
+    .products-grid,
+    .hero {
+        grid-template-columns: repeat(1, 1fr); 
+        width: 100%;
+    }
+
+    .popular-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .hero, .features, .products-section, .popular-products {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    /* --- 2. Brand Story --- */
+    .brand-story {
+        display: flex;
+        min-height: 603px;
+        /* Использование calc позволяет блоку игнорировать 5% padding у body и прилипать к краям экрана */
+        margin-left: -5.3% !important; 
+        margin-right: -5.3% !important;
+        width: calc(100% + 10.6%) !important;
+        padding: 0 !important;
+        flex-direction: column;
+    }
+    
+    .story-content {
+        padding: 40px 20px !important;
+    }
+    
+    .story-image {
+        padding: 0 !important;
+    }
+
+    .story-content button {
+        background-color: #F9F9F9;
+        color: #2A254B;
+        border: none;
+        padding: 16px 32px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    /* Микроанимация нажатия */
+    .story-content button:active {
+        background-color: #EBEBEB;
+        transform: scale(0.98);
+    }
+
+    /* --- 3. View Collection Button --- */
+    .view-collection button {
+        background-color: #cac6c65f;
+        color: #2A254B;
+        border: none;
+        padding: 22px 42px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .view-collection button:active {
+        background-color: #b0aeae;
+        transform: scale(0.98);
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* --- 4. Newsletter (Верхний/Белый) --- */
+    .newsletter {
+        margin-left: -5.3% !important;
+        margin-right: -5.3% !important;
+        width: calc(100% + 10.6%) !important;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inside_newsletter {
+        background-color: white;
+        padding: 4.5%;
+        width: 100% !important; 
+        max-width: 100%; /* Заменили 100vw на 100% */
+        margin: 0;
+    }
+
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        max-width: 100%;            
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 23px 24px;
+        border: 3px gray solid;
+        background-color: #F9F9F9;
+        font-size: 16px;
+        line-height: 150%;
+        color: #2A254B;
+        width: 100%;
+    }
+
+    /* Анимация фокуса на поле ввода */
+    .newsletter-form input:focus {
+        border-color: #2A254B;
+        outline: none;
+        background-color: #fff;
+    }
+
+    /* --- 5. Header (Фиксированный внизу) --- */
+    header {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: auto !important;
+        width: auto !important; /* Убираем 100%, так как left/right: 0 сами растянут его */
+        
+        z-index: 1000;
+        background: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        
+        /* Внутренние отступы элементов внутри хедера */
+        padding: 10px 15px !important; 
+        
+        /* Сброс всех внешних влияний */
+        margin: 0 !important;
+        border-top: 1px solid #EBE9F1;
+        
+        /* Гарантируем, что padding не увеличит ширину */
+        box-sizing: border-box !important;
+    }
+
+    /* Исправляем контейнер внутри хедера */
+    .header_top {
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: space-between; /* Распределяем иконки по краям */
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .logo {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .header_top img[src*="Лого.png"] {
+        height: 30px;
+    }
+
+    .right_icon_in_header_top {
+        display: contents;
+        gap: 15px;
+    }
+
+    .lcon_header {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Анимация иконок при нажатии */
+    .lcon_header:active {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+
+    .burger {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        order: 5;
+    }
+    
+    .burger::before,
+    .burger::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: #2A254B;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .burger::before { top: 12px; box-shadow: 0 8px 0 #2A254B; }
+    .burger::after { bottom: 12px; }
+    
+    .burger[aria-expanded="true"]::before {
+        transform: rotate(45deg);
+        top: 19px;
+        box-shadow: none;
+    }
+    
+    .burger[aria-expanded="true"]::after {
+        transform: rotate(-45deg);
+        bottom: 19px;
+    }
+
+    .scroll-top {
+    position: fixed;
+    right: 20px;
+    bottom: 90px; /* зона большого пальца */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 900;
+    }
+
+    .scroll-top:active {
+        background-color: #2A254B;
+        color: white;
+    }
+
+    /* Мобильная навигация */
+    nav {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .nav-menu {
+        display: none; 
+    }
+    
+    .nav-menu.mobile-visible {
+        display: flex;           /* ОШИБКА БЫЛА ТУТ: Меню было display: none */
+        flex-direction: column;  /* Выстраиваем пункты в столбик */
+        position: fixed;
+        top: 70px;               /* Подберите под высоту вашего хедера */
+        left: 65%;
+        right: 0;
+        bottom: 0%;
+
+        background: white;
+        padding: 20px 5%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        border-radius: 0 0 20px 20px;
+
+        z-index: 20;
+        align-items: flex-end; 
+    
+        /* 2. Прижимаем содержимое к нижнему краю */
+        /* Чтобы "низ" существовал, задаем минимальную высоту, иначе меню будет схлопнуто по высоте текста */
+        justify-content: flex-start; 
+        min-height: 250px; 
+        
+        /* Внутренние отступы, чтобы текст не лип к самому краю экрана */
+        padding: 20px 5% !important; 
+        box-sizing: border-box;
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .nav-menu li {
+        flex: 1;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .nav-menu.mobile-visible li {
+        text-align: right;
+    }
+
+    .nav-menu a {
+        font-size: 12px;
+        padding: 8px 0;
+        color: #2A254B;
+        display: block;
+        text-decoration: none;
+    }
+
+    .nav-menu.mobile-visible a {
+        font-size: 18px; 
+        padding: 15px 0;
+    }
+
+    .nav-menu.mobile-visible a:active {
+        color: #4E4D93;
+        padding-right: 10px; 
+    }
+
+    /* --- 6. Footer --- */
+    footer {
+        background-color: #2A254B;
+        color: white;
+        padding: 30px 5% 10px !important;
+        margin-left: -5.3% !important;
+        width: calc(100% + 10.6%) !important;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: 0px;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .inpyt_form-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer-newsletter input {
+        flex: 1;
+        padding: 23px 24px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background-color: rgba(255,255,255,0.1);
+        font-size: 16px;
+        line-height: 150%;
+        color: #FFFFFF !important;
+        width: 100%;
+    }
+
+    .footer-newsletter input:focus {
+        background-color: rgba(255,255,255,0.2);
+        border-color: #fff;
+        outline: none;
+    }
+
+    .footer-newsletter input::placeholder {
+        color: #fff;
+        opacity: 0.5;
+    }
+
+    .footer-newsletter button {
+        padding: 16px 32px;
+        background-color: white;
+        color: #2A254B;
+        border: none;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .footer-newsletter button:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 24px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 30px;
+        height: 34px;
+        color: white;
+        filter: brightness(0) invert(1);
+    }
+
+    .social-links a:active {
+        transform: translateY(-3px);
+    }
+}
+
+/* ========== ПЛАНШЕТЫ (601px - 1024px) ========== */
+@media (min-width: 601px) and (max-width: 1024px) {
+    body { 
+        font-size: 24px !important; 
+    }
+
+    h1 { font-size: 2.1em !important; }
+    h2 { font-size: 1.7em !important; }
+    h3 { font-size: 1.4em !important; }
+    h4 { font-size: 1.1em !important; }
+
+    p, a, span, button, input, li { 
+        font-size: 1em !important; 
+    }
+
+    /* --- 1. Общие настройки и Сетки --- */
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #2A254B;
+        line-height: 150%;
+        font-size: 16px;
+        margin: 0 5% 5%; /* Твой отступ */
+        overflow-x: hidden;
+        padding-bottom: 0px; 
+        margin: 0px 5%; 
+        overflow-x: hidden;
+    }
+
+    .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.69); /* Цвет затемнения (черный с 50% прозрачностью) */
+    z-index: 15; /* Должен быть ниже меню (у вас оно 20), но выше контента страницы */
+    opacity: 0;
+    pointer-events: none; /* Чтобы оверлей не мешал нажимать на кнопки, когда меню закрыто */
+    transition: opacity 0.3s ease;
+    }
+
+    /* Класс, который будет добавляться при открытии меню */
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto; /* Делаем его кликабельным */
+    }
+
+    /* Плавный переход для всех интерактивных элементов */
+    button, a, input {
+        transition: all 0.3s ease;
+    }
+
+    /* Планшетная сетка в 2 колонки */
+    .features-grid,
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        width: 100%;
+    }
+
+    /* Твоя схема: один большой сверху, два в ряд снизу */
+    .popular-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+        width: 100%;
+    }
+
+    .popular-grid > *:first-child {
+        grid-column: span 2;
+    }
+
+    .popular-grid > *:first-child img {
+        width: 100%;
+        height: 400px; /* Высота для планшета */
+        object-fit: cover;
+    }
+
+    .hero {
+        grid-template-columns: 1fr; 
+    }
+
+    .hero, .features, .products-section, .popular-products {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* --- 2. Brand Story (Вертикально как в телефоне) --- */
+    .brand-story {
+        display: flex;
+        min-height: 603px;
+        margin: 0 -5.5% !important; /* Компенсируем отступ body */
+        padding: 0 !important;
+        flex-direction: column;
+    }
+    
+    .story-content {
+        padding: 40px 20px !important;
+        height: auto; /* На планшете контента может быть больше */
+    }
+    
+    .story-image {
+        padding: 0 !important;
+    }
+
+    .story-content button {
+        background-color: #F9F9F9;
+        color: #2A254B;
+        border: none;
+        padding: 16px 32px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .story-content button:active {
+        background-color: #EBEBEB;
+        transform: scale(0.98);
+    }
+
+    /* --- 3. View Collection Button --- */
+    .view-collection button {
+        background-color: #cac6c65f;
+        color: #2A254B;
+        border: none;
+        padding: 22px 42px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .view-collection button:active {
+        background-color: #b0aeae;
+        transform: scale(0.98);
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* --- 4. Newsletter (В один ряд для планшета) --- */
+    .newsletter {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 20px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inside_newsletter {
+        background-color: white;
+        padding: 4.5%;
+        width: 100% !important; 
+        max-width: 100vw;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .newsletter-form {
+        display: flex;
+        flex-direction: row; /* На планшете удобнее в ряд */
+        gap: 0;
+        max-width: 100%; 
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .newsletter-form input {
+        flex: 2;
+        padding: 23px 24px;
+        border: 3px gray solid;
+        background-color: #F9F9F9;
+        font-size: 16px;
+        line-height: 150%;
+        color: #2A254B;
+    }
+
+    .newsletter-form input:focus {
+        border-color: #2A254B;
+        outline: none;
+        background-color: #fff;
+    }
+
+    .newsletter-form button {
+        padding: 32px 32px;
+        width: 25%;
+    }
+
+    /* --- 5. Header (ТОЧНО КАК НА ТЕЛЕФОНЕ) --- */
+    header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+
+    z-index: 1000;
+    background: white;
+    padding: 10px 15px !important;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #EBE9F1;
+
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    }
+
+
+    /* Исправляем контейнер внутри хедера */
+    .header_top {
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: space-between; /* Распределяем иконки по краям */
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .logo {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .header_top img[src*="Лого.png"] {
+        height: 30px;
+    }
+
+
+    .right_icon_in_header_top {
+        display: contents;
+        gap: 15px;
+    }
+
+    .lcon_header {
+        height: 40px;
+        width: 40px;
+    }
+
+    .lcon_header:active {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+
+    .burger {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        order: 5;
+    }
+    
+    .burger::before,
+    .burger::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: #2A254B;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .burger::before { top: 12px; box-shadow: 0 8px 0 #2A254B; }
+    .burger::after { bottom: 12px; }
+    
+    .burger[aria-expanded="true"]::before {
+        transform: rotate(45deg);
+        top: 19px;
+        box-shadow: none;
+    }
+    
+    .burger[aria-expanded="true"]::after {
+        transform: rotate(-45deg);
+        bottom: 19px;
+    }
+
+
+    .scroll-top {
+    position: fixed;
+    right: 20px;
+    bottom: 200px; /* зона большого пальца */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+    }
+
+    .scroll-top:active {
+        background-color: #2A254B;
+        color: white;
+    }
+
+    /* Планшетная навигация (мобильный стиль) */
+    nav {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+    }
+    
+    .nav-menu {
+        display: none; 
+    }
+    
+    .nav-menu.mobile-visible {
+        display: flex;           
+        flex-direction: column;  
+        position: fixed;
+        top: 60px;               
+        
+        right: 0;
+        bottom: 0%;
+
+        background: white;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        border-radius: 0 0 20px 20px;
+
+        z-index: 20;
+        align-items: flex-end; 
+    
+        justify-content: space-between;
+        min-height: 250px; 
+        
+        padding: 20px 5% !important; 
+        box-sizing: border-box;
+    }
+
+
+    .nav-menu.mobile-visible a {
+        font-size: 18px;
+        padding: 15px 0;
+        color: #2A254B;
+        display: block;
+        text-decoration: none;
+    }
+
+    .nav-menu.mobile-visible a:active {
+        color: #4E4D93;
+        padding-right: 10px;
+    }
+
+    /* --- 6. Footer --- */
+    footer {
+        background-color: #2A254B;
+        color: white;
+        padding: 30px 20px 30px !important;
+        margin: 0 -5.5% !important;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 0px;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+
+    .footer-newsletter input {
+        flex: 1;
+        padding: 23px 24px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background-color: rgba(255,255,255,0.1);
+        font-size: 16px;
+        line-height: 150%;
+        color: #FFFFFF !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-newsletter button {
+        padding: 32px 32px;
+        background-color: white;
+        color: #2A254B;
+        border: none;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        width: 25%;
+    }
+
+    .footer-newsletter button:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 30px;
+        height: 34px;
+        color: white;
+        filter: brightness(0) invert(1);
+    }
+}
